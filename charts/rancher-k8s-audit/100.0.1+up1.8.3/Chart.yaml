@@ -1,0 +1,20 @@
+annotations:
+  catalog.cattle.io/certified: rancher
+  catalog.cattle.io/display-name: rancher-k8s-audit
+  catalog.cattle.io/kube-version: '>=1.18.0-0'
+  catalog.cattle.io/namespace: cattle-auditlog
+  catalog.cattle.io/os: linux
+  catalog.cattle.io/rancher-version: '> 2.6.0-0'
+  catalog.cattle.io/release-name: rancher-k8s-audit
+  catalog.cattle.io/type: cluster-tool
+  catalog.cattle.io/upstream-version: 1.8.3
+apiVersion: v1
+appVersion: 1.8.3
+description: Collects k8s api-server auditlog
+icon: https://charts.rancher.io/assets/logos/logging.svg
+keywords:
+- logging
+- auditlog
+- security
+name: rancher-k8s-audit
+version: 100.0.1+up1.8.3

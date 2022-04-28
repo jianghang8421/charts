@@ -1,0 +1,28 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: k8saudit-fluentbit
+spec:
+  selector:
+    matchLabels:
+      app: k8saudit-fluentbit
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: k8saudit-fluentbit
+      annotations:
+    spec:
+      volumes:
+      - name: fluentbit-config
+        configMap:
+          name: fluentbit-config
+      containers:
+        - name: fluentbit
+          image: fluent/fluent-bit:1.8.13
+          args:
+          - /fluent-bit/bin/fluent-bit
+          - --config=/fluenbit-config/main.conf
+          volumeMounts:
+          - name: fluentbit-config
+            mountPath: /fluenbit-config
