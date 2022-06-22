@@ -1,0 +1,30 @@
+annotations:
+  catalog.cattle.io/certified: rancher
+  catalog.cattle.io/display-name: Rancher-GPU-MIG
+  catalog.cattle.io/kube-version: '>= 1.20.0-0 < 1.24.0-0'
+  catalog.cattle.io/namespace: rancher-gpu-mig
+  catalog.cattle.io/os: linux
+  catalog.cattle.io/permits-os: linux
+  catalog.cattle.io/rancher-version: '>= 2.6.0-0 <= 2.6.100-0'
+  catalog.cattle.io/release-name: rancher-gpu-mig
+  catalog.cattle.io/type: cluster-tool
+  catalog.cattle.io/upstream-version: 0.12.2
+apiVersion: v2
+appVersion: 0.12.2
+dependencies:
+- alias: nfd
+  condition: nfd.enabled,gfd.enabled
+  name: node-feature-discovery
+  repository: https://kubernetes-sigs.github.io/node-feature-discovery/charts
+  version: 0.11.0
+- alias: gfd
+  condition: gfd.enabled
+  name: gpu-feature-discovery
+  repository: ""
+  version: 0.6.1
+description: A Helm chart for the nvidia-device-plugin on Kubernetes
+home: https://github.com/NVIDIA/k8s-device-plugin
+kubeVersion: '>= 1.10.0-0'
+name: rancher-gpu-mig
+type: application
+version: 100.0.0+up0.12.2
